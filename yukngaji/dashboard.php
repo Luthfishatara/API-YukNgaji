@@ -1,5 +1,24 @@
 <?php
     session_start();
+
+    $host = "localhost";
+    $name = "root";
+    $pswd = "";
+    $db = "mini";
+
+    $con = mysqli_connect($host, $name, $pswd, $db);
+
+    $sqlsantri = "SELECT COUNT(Id) AS totals FROM santri";
+    $results = mysqli_query($con, $sqlsantri);
+    $valuess = mysqli_fetch_assoc($results);
+    $num_rows = $valuess['totals'];
+    $_SESSION['totalsantri'] = $num_rows;
+
+    $sqlustad = "SELECT COUNT(Id) AS totalu FROM ustad";
+    $resultu = mysqli_query($con, $sqlustad);
+    $valuesu = mysqli_fetch_assoc($resultu);
+    $num_rowu = $valuesu['totalu'];
+    $_SESSION['totalustad'] = $num_rowu;
 ?>
 
 
@@ -612,8 +631,10 @@
                                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Likes</span>
-                                    <span class="info-box-number">41,410</span>
+                                    <span class="info-box-text">Jumlah total user</span>
+                                    <?php
+                                        echo $_SESSION['total'];
+                                    ?>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -626,11 +647,13 @@
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box mb-3">
-                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
 
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Sales</span>
-                                    <span class="info-box-number">760</span>
+                                    <span class="info-box-text">Jumlah Ustad</span>
+                                    <?php
+                                        echo $_SESSION['totalustad'];
+                                    ?>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -642,8 +665,10 @@
                                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
                                 <div class="info-box-content">
-                                    <span class="info-box-text">New Members</span>
-                                    <span class="info-box-number">2,000</span>
+                                    <span class="info-box-text">Jumlah Santri</span>
+                                    <?php
+                                        echo $_SESSION['totalsantri'];
+                                    ?>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>

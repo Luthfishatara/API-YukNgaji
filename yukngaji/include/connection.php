@@ -4,7 +4,7 @@
 $host = "localhost";
 $name = "root";
 $pswd = "";
-$db = "test";
+$db = "mini";
 
 $con = mysqli_connect($host, $name, $pswd, $db);
 
