@@ -372,13 +372,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/ustad.php" class="nav-link">
+                <a href="../tables/ustad.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Ustad</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/santri.php" class="nav-link active">
+                <a href="../tables/santri.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Santri</p>
                 </a>
