@@ -577,7 +577,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Data Santri</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -610,8 +610,6 @@
                   <th>Umur</th>
                   <th>Alamat</th>
                   <th>Pendidikan</th>
-                  <th>Pengalaman</th>
-                  <th>Jadwal</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -626,7 +624,7 @@
 
                 if($result-> num_rows > 0){
                     while($row = $result-> fetch_assoc()){
-                        echo "<tr><td>". $row["id"] ."</td><td>". $row["name"]. "</td><td>". $row["umur"]. "</td><td>". $row["alamat"]. "</td><>". $row["pendidikan"]. "</td></tr>";
+                        echo "<tr><td>". $row["id"] ."</td><td>". $row["name"]. "</td><td>". $row["umur"]. "</td><td>". $row["alamat"]. "</td><td>". $row["pendidikan"]. "</td></tr>";
                     }
                     echo "</table>";
                 }
