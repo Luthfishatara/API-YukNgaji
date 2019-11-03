@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_POST['submit'])){
-        $con = mysqli_connect("localhost", "root", "", "mini");
+        $con = mysqli_connect("localhost", "root", "", "yukngaji");
         $email = $_POST['email'];
         $pas = $_POST['password'];
 
