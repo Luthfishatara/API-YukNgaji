@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2019 pada 14.24
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.0.33
+-- Generation Time: Nov 03, 2019 at 08:19 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `mini`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `Id` int(11) NOT NULL,
+  `Email` text NOT NULL,
+  `Sandi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Id`, `Email`, `Sandi`) VALUES
+(1, 'Gakoffical@gmail.com', 'Dinosaurus123'),
+(2, 'test@test', 'test');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
 --
 
 CREATE TABLE `berita` (
@@ -37,7 +57,7 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`berita_id`, `title_berita`, `subtitle_berita`, `image_berita`, `isi_berita`) VALUES
@@ -46,7 +66,7 @@ INSERT INTO `berita` (`berita_id`, `title_berita`, `subtitle_berita`, `image_ber
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelompok`
+-- Table structure for table `kelompok`
 --
 
 CREATE TABLE `kelompok` (
@@ -58,7 +78,7 @@ CREATE TABLE `kelompok` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kelompok`
+-- Dumping data for table `kelompok`
 --
 
 INSERT INTO `kelompok` (`kelompok_id`, `jumlah_anggota`, `paket_perbulan`, `paket_persemester`, `paket_pertahun`) VALUES
@@ -67,7 +87,7 @@ INSERT INTO `kelompok` (`kelompok_id`, `jumlah_anggota`, `paket_perbulan`, `pake
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keluarga`
+-- Table structure for table `keluarga`
 --
 
 CREATE TABLE `keluarga` (
@@ -79,7 +99,7 @@ CREATE TABLE `keluarga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `keluarga`
+-- Dumping data for table `keluarga`
 --
 
 INSERT INTO `keluarga` (`keluarga_id`, `jumlah_anggota`, `paket_perbulan`, `paket_persemester`, `paket_pertahun`) VALUES
@@ -88,7 +108,7 @@ INSERT INTO `keluarga` (`keluarga_id`, `jumlah_anggota`, `paket_perbulan`, `pake
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal`
+-- Table structure for table `personal`
 --
 
 CREATE TABLE `personal` (
@@ -99,7 +119,7 @@ CREATE TABLE `personal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `personal`
+-- Dumping data for table `personal`
 --
 
 INSERT INTO `personal` (`personal_id`, `paket_perbulan`, `paket_persemester`, `paket_pertahun`) VALUES
@@ -108,7 +128,7 @@ INSERT INTO `personal` (`personal_id`, `paket_perbulan`, `paket_persemester`, `p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `register`
+-- Table structure for table `register`
 --
 
 CREATE TABLE `register` (
@@ -125,7 +145,7 @@ CREATE TABLE `register` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `santri`
+-- Table structure for table `santri`
 --
 
 CREATE TABLE `santri` (
@@ -137,17 +157,18 @@ CREATE TABLE `santri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='pampam';
 
 --
--- Dumping data untuk tabel `santri`
+-- Dumping data for table `santri`
 --
 
 INSERT INTO `santri` (`id`, `name`, `umur`, `alamat`, `pendidikan`) VALUES
 (1, 'daushmen', 15, 'Villa 139', 'lulus paud'),
-(2, 'patihul', 90, 'cilacap ', 's3 panti jompo');
+(2, 'patihul', 90, 'cilacap ', 's3 panti jompo'),
+(3, 'super oncreate view', 11, 'gadog', 'al azhar');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_review`
+-- Table structure for table `tbl_review`
 --
 
 CREATE TABLE `tbl_review` (
@@ -160,7 +181,7 @@ CREATE TABLE `tbl_review` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_berita`
+-- Table structure for table `tb_berita`
 --
 
 CREATE TABLE `tb_berita` (
@@ -173,7 +194,7 @@ CREATE TABLE `tb_berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_berita`
+-- Dumping data for table `tb_berita`
 --
 
 INSERT INTO `tb_berita` (`id`, `foto`, `judul_berita`, `tanggal_posting`, `isi_berita`, `penulis`) VALUES
@@ -184,7 +205,7 @@ INSERT INTO `tb_berita` (`id`, `foto`, `judul_berita`, `tanggal_posting`, `isi_b
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ustad`
+-- Table structure for table `ustad`
 --
 
 CREATE TABLE `ustad` (
@@ -198,7 +219,7 @@ CREATE TABLE `ustad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='daus';
 
 --
--- Dumping data untuk tabel `ustad`
+-- Dumping data for table `ustad`
 --
 
 INSERT INTO `ustad` (`id`, `name`, `umur`, `alamat`, `pendidikan`, `pengalaman`, `jadwal`) VALUES
@@ -210,114 +231,114 @@ INSERT INTO `ustad` (`id`, `name`, `umur`, `alamat`, `pendidikan`, `pengalaman`,
 --
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`berita_id`);
 
 --
--- Indeks untuk tabel `kelompok`
+-- Indexes for table `kelompok`
 --
 ALTER TABLE `kelompok`
   ADD PRIMARY KEY (`kelompok_id`),
   ADD UNIQUE KEY `kelompok_id` (`kelompok_id`);
 
 --
--- Indeks untuk tabel `keluarga`
+-- Indexes for table `keluarga`
 --
 ALTER TABLE `keluarga`
   ADD PRIMARY KEY (`keluarga_id`);
 
 --
--- Indeks untuk tabel `personal`
+-- Indexes for table `personal`
 --
 ALTER TABLE `personal`
   ADD PRIMARY KEY (`personal_id`);
 
 --
--- Indeks untuk tabel `register`
+-- Indexes for table `register`
 --
 ALTER TABLE `register`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `santri`
+-- Indexes for table `santri`
 --
 ALTER TABLE `santri`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_review`
+-- Indexes for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_berita`
+-- Indexes for table `tb_berita`
 --
 ALTER TABLE `tb_berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ustad`
+-- Indexes for table `ustad`
 --
 ALTER TABLE `ustad`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `berita_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `kelompok`
+-- AUTO_INCREMENT for table `kelompok`
 --
 ALTER TABLE `kelompok`
   MODIFY `kelompok_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `keluarga`
+-- AUTO_INCREMENT for table `keluarga`
 --
 ALTER TABLE `keluarga`
   MODIFY `keluarga_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `personal`
+-- AUTO_INCREMENT for table `personal`
 --
 ALTER TABLE `personal`
   MODIFY `personal_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `register`
+-- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `santri`
+-- AUTO_INCREMENT for table `santri`
 --
 ALTER TABLE `santri`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_review`
+-- AUTO_INCREMENT for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_berita`
+-- AUTO_INCREMENT for table `tb_berita`
 --
 ALTER TABLE `tb_berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `ustad`
+-- AUTO_INCREMENT for table `ustad`
 --
 ALTER TABLE `ustad`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

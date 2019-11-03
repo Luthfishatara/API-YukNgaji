@@ -383,7 +383,12 @@
                   <p>Data Santri</p>
                 </a>
               </li>
-              
+              <li class="nav-item">
+                <a href="../tables/createustad.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tambah Ustad</p>
+                </a>
+              </li>
             </ul>
           </li>
   </aside>
