@@ -1,7 +1,9 @@
 <?php
     session_start();
+    include 'include/connection.php';
+
     if (isset($_POST['submit'])){
-        $con = mysqli_connect("localhost", "root", "", "yukngaji");
+       
         $email = $_POST['email'];
         $pas = $_POST['password'];
 
@@ -10,12 +12,6 @@
         $pas = stripslashes($pas);
         $email = mysqli_real_escape_string($con, $email);
         $pas = mysqli_real_escape_string($con, $pas);
-
-        //connect to server and select database
-        mysqli_connect('localhost', 'root', '');
-        mysqli_select_db($con, 'mini');
-
-        //query the database
         
 
         if (empty($_POST['email']) || empty($_POST['password'])){
