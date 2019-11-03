@@ -1,6 +1,35 @@
 <?php
     session_start();
-    include 'include/connection.php';
+    include '../../include/connection.php';
+
+    if (isset($_POST['submit'])){
+       
+        $Nama = $_POST['Nama'];
+        $Alamat = $_POST['Alamat'];
+        $Umur = $_POST['Umur'];
+
+        //prevent sql injection
+        $Nama = stripslashes($Nama);
+        $Alamat = stripslashes($Alamat);
+        $Umur = stripslashes($Umur);
+        $Nama = mysqli_real_escape_string($con, $Nama);
+        $Alamat = mysqli_real_escape_string($con, $Alamat);
+        $Umur = mysqli_real_escape_string($con, $Umur);
+
+        //connect to server and select database
+        mysqli_connect('localhost', 'root', '');
+        mysqli_select_db($con, 'yukngajis');
+
+        //query the database
+        
+
+        if (empty($_POST['Nama']) || empty($_POST['Alamat']) || empty($_POST['Umur'])){
+            header("Location: createustad.php?Empty= Tolong Isi Yang Kosong");
+        }else{
+            $sql = "INSERT INTO ustad(name, umur, alamat) VALUES('$Nama', '$Umur', '$Alamat')";
+            mysqli_query($db, $sql);
+        }
+    }
 ?>
 
 
@@ -429,31 +458,40 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Nama</label>
-                <input type="text" id="inputName" class="form-control">
+                <input name="Nama" type="text" id="inputName" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputAlamat">Alamat</label>
-                <textarea id="inputAlamat" class="form-control" rows="4"></textarea>
+                <textarea name="Alamat" id="inputAlamat" class="form-control" rows="4"></textarea>
               </div>
               <div class="form-group">
                 <label for="inputUmur">Umur</label>
-                <input type="text" id="inputUmur" class="form-control">
+                <input name="Umur" type="text" id="inputUmur" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputPendidikan">Pendidikan</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Pilih Salah Satu</option>
-                  <option>Tidak Sekolah</option>
-                  <option>PAUD</option>
-                  <option>TK</option>
-                  <option>SD</option>
-                  <option>MI</option>
-                  <option>SMP</option>
-                  <option>SMA</option>
-                  <option>S1</option>
-                  <option>S2</option>
-                  <option>S3</option>
-                  <option>STehTataBoga</option>
+                <select id="pendidikan" name="pendidikan" class="form-control custom-select">
+                  <option>
+
+                    ---Pilih Pendidikan---
+
+
+                    <?php
+
+                    $query_db = mysqli_query($con, $query_select);
+
+                    while($data = mysqli_fetch_array($query_db)){
+
+
+                      $data['']
+
+
+
+                    }
+
+                    ?>
+
+                  </option>
                 </select>
               </div>
               <div class="form-group">
@@ -501,7 +539,7 @@
       <div class="row">
         <div class="col-12">
           <a href="../../dashboard.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+          <input name="submit" type="submit" value="Tambah Ustad" class="btn btn-success float-right">
         </div>
       </div>
     </section>

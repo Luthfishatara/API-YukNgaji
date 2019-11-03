@@ -3,7 +3,6 @@
     include 'include/connection.php';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -440,7 +439,7 @@
                 </thead>
                 <tbody>
                 <?php
-                $conn = mysqli_connect("localhost", "root", "", "mini");
+                $conn = mysqli_connect("localhost", "root", "", "yukngaji");
                 if ($conn-> connect_error){
                     die("Connection failed:". $conn-> connect_error);
                 }
