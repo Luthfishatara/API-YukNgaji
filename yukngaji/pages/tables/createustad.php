@@ -1,5 +1,33 @@
 <?php
     session_start();
+    if (isset($_POST['submit'])){
+        $con = mysqli_connect("localhost", "root", "", "yukngaji");
+        $Nama = $_POST['Nama'];
+        $Alamat = $_POST['Alamat'];
+        $Umur = $_POST['Umur'];
+
+        //prevent sql injection
+        $Nama = stripslashes($Nama);
+        $Alamat = stripslashes($Alamat);
+        $Umur = stripslashes($Umur);
+        $Nama = mysqli_real_escape_string($con, $Nama);
+        $Alamat = mysqli_real_escape_string($con, $Alamat);
+        $Umur = mysqli_real_escape_string($con, $Umur);
+
+        //connect to server and select database
+        mysqli_connect('localhost', 'root', '');
+        mysqli_select_db($con, 'yukngajis');
+
+        //query the database
+        
+
+        if (empty($_POST['Nama']) || empty($_POST['Alamat']) || empty($_POST['Umur'])){
+            header("Location: createustad.php?Empty= Tolong Isi Yang Kosong");
+        }else{
+            $sql = "INSERT INTO ustad(name, umur, alamat) VALUES('$Nama', '$Umur', '$Alamat')";
+            mysqli_query($db, $sql);
+        }
+    }
 ?>
 
 
@@ -428,15 +456,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Nama</label>
-                <input type="text" id="inputName" class="form-control">
+                <input name="Nama" type="text" id="inputName" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputAlamat">Alamat</label>
-                <textarea id="inputAlamat" class="form-control" rows="4"></textarea>
+                <textarea name="Alamat" id="inputAlamat" class="form-control" rows="4"></textarea>
               </div>
               <div class="form-group">
                 <label for="inputUmur">Umur</label>
-                <input type="text" id="inputUmur" class="form-control">
+                <input name="Umur" type="text" id="inputUmur" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputPendidikan">Pendidikan</label>
@@ -500,7 +528,7 @@
       <div class="row">
         <div class="col-12">
           <a href="../../dashboard.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+          <input name="submit" type="submit" value="Tambah Ustad" class="btn btn-success float-right">
         </div>
       </div>
     </section>
