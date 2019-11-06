@@ -21,6 +21,22 @@
 
         }
 
+       // $hasyim["santri"] = $jsonObj;
+
+        /*$jsonUstad = array();
+        $ustSelect = "SELECT * FROM ustad";
+        $ustQue = mysqli_query($con, $ustSelect);
+
+        while ($ngaji1 = mysqli_fetch_assoc($ustQue)) {
+            $row1['name'] = $ngaji1['name'];
+                $row1['umur'] = $ngaji1['umur'];
+                $row1['alamat'] = $ngaji1['alamat'];
+
+                array_push($jsonUstad, $row1);
+        }
+
+        $hasyim["ustad"] = $jsonUstad;*/
+
         $showing["YukNgaji"] = $jsonObj;
 
         header('Content-Type: application/json; charset=utf-8');
