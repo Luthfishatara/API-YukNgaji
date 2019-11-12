@@ -143,7 +143,7 @@ die();
 
     $jsonObj = array();
 
-    $query = "SELECT * FROM berita";
+    $query = "SELECT * FROM tb_berita";
 
     $query_con = mysqli_query($con,$query);
 
